@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/data/users', [
+    'as' => 'users', 
+    'uses' => 'UserController@jsonUsers'
+]);
