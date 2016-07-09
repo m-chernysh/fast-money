@@ -19,7 +19,30 @@
 
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                     <h1 class="page-header">Fast Money</h1>
-                    <pre ng-bind="data() | json"></pre>
+
+                    <fieldset>
+                        <label>Счет списания</label>
+                        <select
+                            ng-options="item.name + ' - ' + item.balance for item in data()"
+                            ng-model="source"
+                        ></select>
+                    </fieldset>
+
+                    <fieldset>
+                        <label>Счет для зачисления</label>
+                        <select
+                            ng-options="item.name + ' - ' + item.balance for item in data()"
+                            ng-model="destination"
+                        ></select>
+                    </fieldset>
+
+                    <fieldset>
+                        <label>Сумма перевода</label>
+                        <input type="number" ng-model="amount">
+                    </fieldset>
+
+                    <button type="button" class="btn btn-success" ng-click="send()">Переслать</button>
+
                 </div>
 
             </div>
