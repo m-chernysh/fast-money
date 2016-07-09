@@ -41,6 +41,7 @@
                         <input type="number" ng-model="amount">
                     </fieldset>
 
+                    <input type="hidden" name="_token" ng-model="_token" ng-init="_token = {{ csrf_token() }}">
                     <button type="button" class="btn btn-success" ng-click="send()">Переслать</button>
 
                 </div>

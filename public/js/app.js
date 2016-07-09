@@ -6,17 +6,11 @@ angular.module('myApp',[])
         $scope.source = null;
         $scope.destination = null;
         $scope.amount = 0;
+        $scope._token = 0;
 
         $scope.data = function () {
             return data;
         };
-
-        /**
-         * Запрос на получение данных пользователей
-         */
-        $http.get('/data/users').then(function(response) {
-            data = response.data;
-        });
 
         /**
          * Отправляем запрос на перевод денежных средств
@@ -41,13 +35,35 @@ angular.module('myApp',[])
             $http.post("/remittance", {
                 'source' : $scope.source,
                 'destination' : $scope.destination,
-                'amount' : $scope.amount
+                'amount' : $scope.amount,
+                '_token' : $scope._token
             }).success(function(response, status) {
-                $log.log(response);
-                $log.log(status);
+                if (!response.error) {
+                    reload();
+                }
             })
+        };
+
+        /**
+         * Запрос на получение данных пользователей
+         */
+        function reload() {
+            $http.get('/data/users').then(function(response) {
+                data = response.data;
+
+                for (idx in data) {
+                    if ($scope.source && data[idx]['id'] == $scope.source.id) {
+                        $scope.source = data[idx];
+                    }
+                    if ($scope.destination && data[idx]['id'] == $scope.destination.id) {
+                        $scope.destination = data[idx];
+                    }
+                }
+
+            });
         }
 
+        reload();
     });
 
 

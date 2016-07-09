@@ -19,3 +19,8 @@ Route::get('/data/users', [
     'as' => 'users', 
     'uses' => 'UserController@jsonUsers'
 ]);
+
+Route::post('/remittance', [
+    'as' => 'remittance',
+    'uses' => 'Controller@remittance'
+]);
