@@ -5756,4 +5756,9 @@ label {
   display: inline-block;
   width: 200px; }
 
+fieldset select,
+fieldset input {
+  width: 200px;
+  border-radius: 2px; }
+
 /*# sourceMappingURL=app.css.map */

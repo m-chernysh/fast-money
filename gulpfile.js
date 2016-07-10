@@ -18,7 +18,7 @@ elixir(function(mix) {
         .scripts([
             '../../../node_modules/jquery/dist/jquery.min.js',
             '../../../node_modules/angular/angular.min.js'
-        ], 'public/js/require.js')
+        ], 'public/js/dep.js')
         .scripts([
             'app.js'
         ], 'public/js/app.js')

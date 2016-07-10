@@ -3,8 +3,6 @@
     <head>
         <title>Fast Money</title>
         <link rel="stylesheet" href="{{ elixir('css/app.css') }}">
-        <script src="/js/require.js"></script>
-        <script src="{{ elixir('js/app.js') }}"></script>
     </head>
     <body>
 
@@ -48,6 +46,10 @@
 
             </div>
         </div>
+
+
+        <script src="/js/dep.js"></script>
+        <script src="{{ elixir('js/app.js') }}"></script>
 
     </body>
 </html>
